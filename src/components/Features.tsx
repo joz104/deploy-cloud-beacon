@@ -1,38 +1,38 @@
 
 import { Card, CardContent } from "@/components/ui/card";
-import { Server, Shield, Gauge, Network, Database, Cpu } from "lucide-react";
+import { Zap, Globe, Shield, GitBranch, Gauge, Cpu } from "lucide-react";
 
 const Features = () => {
   const features = [
     {
-      icon: Server,
-      title: "Dedicated Hardware",
-      description: "High-performance dedicated servers with enterprise-grade components and redundant systems."
+      icon: Zap,
+      title: "Instant Deployments",
+      description: "Deploy your code in seconds with our lightning-fast build pipeline and global CDN."
     },
     {
-      icon: Network,
-      title: "Global Network",
-      description: "Multi-location infrastructure with low-latency connections and redundant network paths."
+      icon: Globe,
+      title: "Global Edge Network",
+      description: "Serve your apps from 300+ locations worldwide for unmatched performance."
     },
     {
       icon: Shield,
-      title: "Advanced Security",
-      description: "Multi-layered security with DDoS protection, firewalls, and continuous monitoring."
+      title: "Enterprise Security",
+      description: "Built-in DDoS protection, SSL certificates, and SOC 2 compliance."
     },
     {
-      icon: Database,
-      title: "Data Redundancy",
-      description: "Multiple backup systems and real-time replication across geographically distributed locations."
+      icon: GitBranch,
+      title: "Git Integration",
+      description: "Automatic deployments from GitHub, GitLab, and Bitbucket repositories."
     },
     {
       icon: Gauge,
-      title: "Performance Monitoring",
-      description: "Real-time performance metrics with automated alerting and proactive maintenance."
+      title: "Auto Scaling",
+      description: "Handle millions of requests with automatic horizontal and vertical scaling."
     },
     {
       icon: Cpu,
-      title: "Scalable Architecture",
-      description: "Containerized deployment with automatic scaling and load balancing capabilities."
+      title: "Zero Config",
+      description: "Deploy any framework without configuration. We handle the complexity."
     }
   ];
 
@@ -41,10 +41,10 @@ const Features = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
-            Infrastructure Built for Performance
+            Everything you need to ship faster
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Enterprise-grade server infrastructure designed for reliability, security, and optimal performance.
+            Built for modern development teams who demand speed, reliability, and simplicity.
           </p>
         </div>
         
