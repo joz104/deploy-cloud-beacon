@@ -1,4 +1,3 @@
-
 import { Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -16,7 +15,7 @@ const Hero = () => {
           <div className="p-2 bg-blue-500/20 rounded-full backdrop-blur-sm border border-blue-500/30">
             <Zap className="w-6 h-6 text-blue-400" />
           </div>
-          <span className="text-white font-bold text-xl">deploys.cloud</span>
+          <span className="text-white font-bold text-xl">Deploys Cloud</span>
         </Link>
         
         <Link to="/login">

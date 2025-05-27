@@ -1,18 +1,19 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Zap, ArrowLeft, AlertCircle, Loader2 } from "lucide-react";
+import { Textarea } from "@/components/ui/textarea";
+import { Zap, ArrowLeft, AlertCircle, Loader2, Key } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { coolifyAPI } from "@/lib/coolify-api";
 import { useAuth } from "@/hooks/use-auth";
 
-const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+const TokenLogin = () => {
+  const [token, setToken] = useState("");
   const [error, setError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   
-  const { login } = useAuth();
+  const { loginWithToken } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -21,17 +22,24 @@ const Login = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await login({ email, password });
+      if (!token.trim()) {
+        setError("Please enter your API token");
+        setIsSubmitting(false);
+        return;
+      }
+
+      // Use the new loginWithToken method
+      const success = await loginWithToken(token.trim());
       
-      if (response.success) {
-        // Redirect to dashboard or main app
+      if (success) {
+        // Redirect to dashboard
         navigate("/dashboard");
       } else {
-        setError(response.message || "Login failed. Please check your credentials.");
+        setError("Invalid API token. Please check your token and try again.");
       }
     } catch (error) {
-      console.error("Login error:", error);
-      setError("An unexpected error occurred. Please try again.");
+      console.error("Token validation error:", error);
+      setError("Failed to validate token. Please check your Coolify instance connection.");
     } finally {
       setIsSubmitting(false);
     }
@@ -52,14 +60,24 @@ const Login = () => {
           <span className="text-white font-bold text-xl">Deploys Cloud</span>
         </Link>
         
-        <Link to="/">
-          <Button 
-            className="bg-gradient-to-r from-purple-500/20 to-purple-600/30 border border-purple-400/40 text-white hover:from-purple-500/30 hover:to-purple-600/40 hover:border-purple-300/60 backdrop-blur-sm transition-all duration-300"
-          >
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Back
-          </Button>
-        </Link>
+        <div className="flex items-center space-x-3">
+          <Link to="/login">
+            <Button 
+              variant="outline"
+              className="bg-transparent border-slate-600 text-slate-300 hover:bg-slate-700"
+            >
+              Email Login
+            </Button>
+          </Link>
+          <Link to="/">
+            <Button 
+              className="bg-gradient-to-r from-purple-500/20 to-purple-600/30 border border-purple-400/40 text-white hover:from-purple-500/30 hover:to-purple-600/40 hover:border-purple-300/60 backdrop-blur-sm transition-all duration-300"
+            >
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Back
+            </Button>
+          </Link>
+        </div>
       </nav>
 
       {/* Login Content */}
@@ -68,13 +86,17 @@ const Login = () => {
           <div className="bg-slate-800/30 backdrop-blur-sm border border-slate-700/50 rounded-lg p-8">
             <div className="flex items-center justify-center mb-8">
               <div className="p-3 bg-blue-500/20 rounded-full backdrop-blur-sm border border-blue-500/30">
-                <Zap className="w-8 h-8 text-blue-400" />
+                <Key className="w-8 h-8 text-blue-400" />
               </div>
             </div>
             
-            <h1 className="text-3xl font-bold text-white text-center mb-8">
-              Welcome back
+            <h1 className="text-3xl font-bold text-white text-center mb-4">
+              API Token Login
             </h1>
+            
+            <p className="text-gray-400 text-center mb-8 text-sm">
+              Enter your Coolify API token to access the dashboard
+            </p>
 
             {/* Error Message */}
             {error && (
@@ -86,31 +108,20 @@ const Login = () => {
             
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <Label htmlFor="email" className="text-gray-300">Email</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="Enter your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="mt-2 bg-slate-700/50 border-slate-600 text-white placeholder:text-gray-400"
+                <Label htmlFor="token" className="text-gray-300">Coolify API Token</Label>
+                <Textarea
+                  id="token"
+                  placeholder="Enter your Coolify API token (e.g., 3|WaobqX9tJQshKPuQFHsyApxuOOggg4wOfvGc9xa233c376d7)"
+                  value={token}
+                  onChange={(e) => setToken(e.target.value)}
+                  className="mt-2 bg-slate-700/50 border-slate-600 text-white placeholder:text-gray-400 resize-none"
+                  rows={3}
                   required
                   disabled={isSubmitting}
                 />
-              </div>
-              
-              <div>
-                <Label htmlFor="password" className="text-gray-300">Password</Label>
-                <Input
-                  id="password"
-                  type="password"
-                  placeholder="Enter your password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="mt-2 bg-slate-700/50 border-slate-600 text-white placeholder:text-gray-400"
-                  required
-                  disabled={isSubmitting}
-                />
+                <p className="text-xs text-gray-400 mt-1">
+                  Generate this token from your Coolify dashboard: Settings → Keys & Tokens → API tokens
+                </p>
               </div>
               
               <Button 
@@ -121,46 +132,40 @@ const Login = () => {
                 {isSubmitting ? (
                   <>
                     <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                    Signing In...
+                    Validating Token...
                   </>
                 ) : (
-                  "Sign In"
+                  <>
+                    <Key className="w-4 h-4 mr-2" />
+                    Connect to Coolify
+                  </>
                 )}
               </Button>
             </form>
             
-            {/* Coolify Connection Info */}
-            <div className="mt-6 p-3 bg-blue-500/10 border border-blue-500/30 rounded-lg">
-              <p className="text-blue-300 text-sm text-center">
-                This login connects to your Coolify instance.
-                <br />
-                <span className="text-blue-400 text-xs">
-                  Configure your Coolify URL in environment variables.
-                </span>
-              </p>
+            {/* How to get token info */}
+            <div className="mt-6 p-4 bg-blue-500/10 border border-blue-500/30 rounded-lg">
+              <h3 className="text-blue-300 font-medium mb-2">How to get your API token:</h3>
+              <ol className="text-blue-300 text-sm space-y-1 list-decimal list-inside">
+                <li>Log into your Coolify dashboard</li>
+                <li>Navigate to Settings → Keys & Tokens</li>
+                <li>Click "Create New Token"</li>
+                <li>Set permissions (recommend "read-only" for safety)</li>
+                <li>Copy the generated token and paste it above</li>
+              </ol>
             </div>
             
             <p className="text-center text-gray-400 mt-6">
-              Need access to Coolify?{" "}
-              <a href="#" className="text-blue-400 hover:text-blue-300 transition-colors">
-                Contact your administrator
+              Don't have a Coolify instance?{" "}
+              <a 
+                href="https://coolify.io/docs/installation" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-blue-400 hover:text-blue-300 transition-colors"
+              >
+                Install Coolify
               </a>
             </p>
-
-            {/* Alternative login method */}
-            <div className="mt-4 pt-4 border-t border-slate-700/50">
-              <p className="text-center text-gray-400 text-sm mb-2">
-                Alternative login method:
-              </p>
-              <Link to="/token-login">
-                <Button
-                  variant="outline"
-                  className="w-full border-slate-600 text-slate-300 hover:bg-slate-700"
-                >
-                  Login with API Token
-                </Button>
-              </Link>
-            </div>
           </div>
         </div>
       </div>
@@ -175,5 +180,4 @@ const Login = () => {
   );
 };
 
-export default Login;
-
+export default TokenLogin; 
