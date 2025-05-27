@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -23,8 +22,7 @@ const Login = () => {
         
         <Link to="/">
           <Button 
-            variant="outline" 
-            className="border-white/20 text-white hover:bg-white/10 hover:border-white/30 backdrop-blur-sm transition-all duration-300"
+            className="bg-gradient-to-r from-blue-500/20 to-purple-600/20 border border-blue-500/30 text-white hover:from-blue-500/30 hover:to-purple-600/30 hover:border-blue-400/50 backdrop-blur-sm transition-all duration-300"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back
