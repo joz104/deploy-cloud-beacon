@@ -1,4 +1,5 @@
 
+
 import { Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -12,12 +13,12 @@ const Hero = () => {
       
       {/* Navigation */}
       <nav className="relative z-10 flex justify-between items-center p-4 w-full">
-        <div className="flex items-center space-x-2">
-          <div className="p-2 bg-blue-500/20 rounded-lg backdrop-blur-sm border border-blue-500/30">
+        <Link to="/" className="flex items-center space-x-2">
+          <div className="p-2 bg-blue-500/20 rounded-full backdrop-blur-sm border border-blue-500/30">
             <Zap className="w-6 h-6 text-blue-400" />
           </div>
           <span className="text-white font-bold text-xl">deploys.cloud</span>
-        </div>
+        </Link>
         
         <Link to="/login">
           <Button 
@@ -61,3 +62,4 @@ const Hero = () => {
 };
 
 export default Hero;
+
