@@ -1,73 +1,83 @@
-# Welcome to your Lovable project
+# Deploy Cloud Beacon
 
-## Project info
+A React-based project for cloud deployment monitoring and management.
 
-**URL**: https://lovable.dev/projects/619bc06b-4d19-4a7e-bdb6-52765163b297
+## Features
 
-## How can I edit this code?
+- Built with React 18 and TypeScript
+- Vite for fast development and building
+- Tailwind CSS for styling
+- Shadcn/ui components
+- React Query for data fetching
+- React Router for navigation
 
-There are several ways of editing your application.
+## Getting Started
 
-**Use Lovable**
+### Prerequisites
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/619bc06b-4d19-4a7e-bdb6-52765163b297) and start prompting.
+- Node.js (version 18 or higher)
+- npm or bun
 
-Changes made via Lovable will be committed automatically to this repo.
+### Installation
 
-**Use your preferred IDE**
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+   or
+   ```bash
+   bun install
+   ```
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Development
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Start the development server:
 
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
 npm run dev
 ```
+or
+```bash
+bun dev
+```
 
-**Edit a file directly in GitHub**
+The application will be available at `http://localhost:8080`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Building
 
-**Use GitHub Codespaces**
+To build the project for production:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```bash
+npm run build
+```
+or
+```bash
+bun build
+```
 
-## What technologies are used for this project?
+### Project Structure
 
-This project is built with:
+```
+src/
+├── components/     # Reusable UI components
+├── hooks/         # Custom React hooks
+├── lib/           # Utility functions and configurations
+└── pages/         # Page components
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Technologies Used
 
-## How can I deploy this project?
+- **React 18** - UI library
+- **TypeScript** - Type safety
+- **Vite** - Build tool and dev server
+- **Tailwind CSS** - Utility-first CSS framework
+- **Shadcn/ui** - Pre-built accessible components
+- **React Query** - Server state management
+- **React Router** - Client-side routing
+- **React Hook Form** - Form handling
+- **Zod** - Schema validation
 
-Simply open [Lovable](https://lovable.dev/projects/619bc06b-4d19-4a7e-bdb6-52765163b297) and click on Share -> Publish.
+## License
 
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+This project is private and proprietary.
