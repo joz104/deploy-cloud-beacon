@@ -1,5 +1,5 @@
 
-import { Github, Twitter, Linkedin } from "lucide-react";
+import { Server, Shield, Mail } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -9,46 +9,48 @@ const Footer = () => {
           <div className="col-span-1 md:col-span-2">
             <h3 className="text-2xl font-bold mb-4">deploys.cloud</h3>
             <p className="text-gray-400 mb-6 max-w-md">
-              The fastest way to deploy your applications to the cloud. 
-              Built for developers who value speed and simplicity.
+              Enterprise-grade server infrastructure providing reliable, secure, 
+              and high-performance hosting solutions for modern applications.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Twitter className="w-6 h-6" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Github className="w-6 h-6" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Linkedin className="w-6 h-6" />
-              </a>
+              <div className="flex items-center text-gray-400">
+                <Server className="w-5 h-5 mr-2" />
+                <span className="text-sm">24/7 Monitoring</span>
+              </div>
+              <div className="flex items-center text-gray-400">
+                <Shield className="w-5 h-5 mr-2" />
+                <span className="text-sm">Enterprise Security</span>
+              </div>
             </div>
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-4">Product</h4>
+            <h4 className="text-lg font-semibold mb-4">Infrastructure</h4>
             <ul className="space-y-3">
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Features</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Pricing</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Documentation</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">API Reference</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Server Specifications</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Network Status</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Security Overview</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Performance Metrics</a></li>
             </ul>
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-4">Company</h4>
+            <h4 className="text-lg font-semibold mb-4">Information</h4>
             <ul className="space-y-3">
               <li><a href="#" className="text-gray-400 hover:text-white transition-colors">About</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Blog</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Careers</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Technical Blog</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">System Status</a></li>
+              <li className="flex items-center text-gray-400">
+                <Mail className="w-4 h-4 mr-2" />
+                <span>Contact</span>
+              </li>
             </ul>
           </div>
         </div>
         
         <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
-            © 2024 deploys.cloud. All rights reserved.
+            © 2024 deploys.cloud. Professional server infrastructure.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
