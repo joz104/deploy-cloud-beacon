@@ -1,5 +1,7 @@
 
 import { Zap } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -16,6 +18,15 @@ const Hero = () => {
           </div>
           <span className="text-white font-bold text-xl">deploys.cloud</span>
         </div>
+        
+        <Link to="/login">
+          <Button 
+            variant="outline" 
+            className="border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white transition-all duration-300"
+          >
+            Login
+          </Button>
+        </Link>
       </nav>
 
       {/* Hero Content */}

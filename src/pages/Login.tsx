@@ -34,8 +34,8 @@ const Login = () => {
 
       {/* Login Content */}
       <div className="relative z-10 flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-8">
-        <div className="w-full max-w-md">
-          <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-lg p-8">
+        <div className="w-full max-w-md animate-fade-in">
+          <div className="bg-slate-800/30 backdrop-blur-sm border border-slate-700/50 rounded-lg p-8">
             <div className="flex items-center justify-center mb-8">
               <div className="p-3 bg-blue-500/20 rounded-full backdrop-blur-sm border border-blue-500/30">
                 <Zap className="w-8 h-8 text-blue-400" />
