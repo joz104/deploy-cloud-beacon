@@ -24,7 +24,7 @@ const Login = () => {
         <Link to="/">
           <Button 
             variant="outline" 
-            className="border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white transition-all duration-300"
+            className="border-white/20 text-white hover:bg-white/10 hover:border-white/30 backdrop-blur-sm transition-all duration-300"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back
