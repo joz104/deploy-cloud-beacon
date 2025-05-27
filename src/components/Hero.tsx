@@ -1,6 +1,5 @@
 
-import { Button } from "@/components/ui/button";
-import { LogIn, Zap } from "lucide-react";
+import { Zap } from "lucide-react";
 
 const Hero = () => {
   return (
@@ -17,14 +16,6 @@ const Hero = () => {
           </div>
           <span className="text-white font-bold text-xl">deploys.cloud</span>
         </div>
-        
-        <Button 
-          variant="outline" 
-          className="border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white transition-all duration-300"
-        >
-          <LogIn className="w-4 h-4 mr-2" />
-          Login
-        </Button>
       </nav>
 
       {/* Hero Content */}
