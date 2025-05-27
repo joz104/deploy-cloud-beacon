@@ -1,15 +1,34 @@
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Zap } from "lucide-react";
+import { LogIn, Zap } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 overflow-hidden">
+    <section className="relative min-h-screen flex flex-col bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_500px_at_50%_200px,#3b82f6,transparent)]"></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_800px_at_80%_50%,#8b5cf6,transparent)]"></div>
       
-      <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+      {/* Navigation */}
+      <nav className="relative z-10 flex justify-between items-center p-6 max-w-7xl mx-auto w-full">
+        <div className="flex items-center space-x-2">
+          <div className="p-2 bg-blue-500/20 rounded-lg backdrop-blur-sm border border-blue-500/30">
+            <Zap className="w-6 h-6 text-blue-400" />
+          </div>
+          <span className="text-white font-bold text-xl">deploys.cloud</span>
+        </div>
+        
+        <Button 
+          variant="outline" 
+          className="border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white transition-all duration-300"
+        >
+          <LogIn className="w-4 h-4 mr-2" />
+          Login
+        </Button>
+      </nav>
+
+      {/* Hero Content */}
+      <div className="relative z-10 flex-1 flex items-center justify-center text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
         <div className="animate-fade-in">
           <div className="flex items-center justify-center mb-6">
             <div className="p-3 bg-blue-500/20 rounded-full backdrop-blur-sm border border-blue-500/30">
@@ -27,28 +46,6 @@ const Hero = () => {
             The fastest way to deploy your applications to the cloud. 
             Zero configuration, instant scaling, global edge network.
           </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button 
-              size="lg" 
-              className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 group"
-            >
-              Start Deploying Free
-              <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
-            </Button>
-            
-            <Button 
-              variant="outline" 
-              size="lg"
-              className="border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white transition-all duration-300"
-            >
-              View Demo
-            </Button>
-          </div>
-          
-          <div className="mt-12 text-gray-400 text-sm">
-            Trusted by 50,000+ developers worldwide
-          </div>
         </div>
       </div>
       
