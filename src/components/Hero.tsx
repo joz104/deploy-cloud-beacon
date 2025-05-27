@@ -1,5 +1,3 @@
-
-
 import { Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -22,7 +20,7 @@ const Hero = () => {
         
         <Link to="/login">
           <Button 
-            className="bg-gradient-to-r from-purple-500/30 to-purple-600/40 border border-purple-300/60 text-white hover:from-purple-500/40 hover:to-purple-600/50 hover:border-purple-200/70 backdrop-blur-sm transition-all duration-300"
+            className="bg-gradient-to-r from-purple-400/40 to-purple-500/50 border border-purple-200/70 text-white hover:from-purple-400/50 hover:to-purple-500/60 hover:border-purple-100/80 backdrop-blur-sm transition-all duration-300"
           >
             Login
           </Button>
@@ -62,4 +60,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
