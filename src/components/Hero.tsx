@@ -1,3 +1,4 @@
+
 import { Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -20,7 +21,7 @@ const Hero = () => {
         
         <Link to="/login">
           <Button 
-            className="bg-gradient-to-r from-blue-500/20 to-purple-600/20 border border-blue-500/30 text-white hover:from-blue-500/30 hover:to-purple-600/30 hover:border-blue-400/50 backdrop-blur-sm transition-all duration-300"
+            className="bg-gradient-to-r from-purple-500/20 to-purple-600/30 border border-purple-400/40 text-white hover:from-purple-500/30 hover:to-purple-600/40 hover:border-purple-300/60 backdrop-blur-sm transition-all duration-300"
           >
             Login
           </Button>
