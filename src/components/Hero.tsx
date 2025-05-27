@@ -22,7 +22,7 @@ const Hero = () => {
         
         <Link to="/login">
           <Button 
-            className="bg-gradient-to-r from-purple-500/20 to-purple-600/30 border border-purple-400/40 text-white hover:from-purple-500/30 hover:to-purple-600/40 hover:border-purple-300/60 backdrop-blur-sm transition-all duration-300"
+            className="bg-gradient-to-r from-purple-500/30 to-purple-600/40 border border-purple-300/60 text-white hover:from-purple-500/40 hover:to-purple-600/50 hover:border-purple-200/70 backdrop-blur-sm transition-all duration-300"
           >
             Login
           </Button>
