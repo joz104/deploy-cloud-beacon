@@ -128,39 +128,6 @@ const Login = () => {
                 )}
               </Button>
             </form>
-            
-            {/* Coolify Connection Info */}
-            <div className="mt-6 p-3 bg-blue-500/10 border border-blue-500/30 rounded-lg">
-              <p className="text-blue-300 text-sm text-center">
-                This login connects to your Coolify instance.
-                <br />
-                <span className="text-blue-400 text-xs">
-                  Configure your Coolify URL in environment variables.
-                </span>
-              </p>
-            </div>
-            
-            <p className="text-center text-gray-400 mt-6">
-              Need access to Coolify?{" "}
-              <a href="#" className="text-blue-400 hover:text-blue-300 transition-colors">
-                Contact your administrator
-              </a>
-            </p>
-
-            {/* Alternative login method */}
-            <div className="mt-4 pt-4 border-t border-slate-700/50">
-              <p className="text-center text-gray-400 text-sm mb-2">
-                Alternative login method:
-              </p>
-              <Link to="/token-login">
-                <Button
-                  variant="outline"
-                  className="w-full border-slate-600 text-slate-300 hover:bg-slate-700"
-                >
-                  Login with API Token
-                </Button>
-              </Link>
-            </div>
           </div>
         </div>
       </div>
